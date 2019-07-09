@@ -25,9 +25,9 @@ namespace DatingApp.Api.Controllers
             _repos = repos;
 
         }
-
+        
         [HttpPost("register")]
-        public async Task<IActionResult> Register(UserForRegisterDto userForRegister)
+        public async Task<IActionResult> Register( UserForRegisterDto userForRegister)
         {
             userForRegister.Username = userForRegister.Username.ToLower();
 
@@ -47,7 +47,7 @@ namespace DatingApp.Api.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
-            var userFromRepo = await _repos.Login(userForLoginDto.UserName.ToLower(                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ), userForLoginDto.password);
+            var userFromRepo = await _repos.Login(userForLoginDto.UserName.ToLower(), userForLoginDto.password);
 
             if (userFromRepo == null)
                 return Unauthorized();
