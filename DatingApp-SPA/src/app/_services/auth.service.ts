@@ -20,7 +20,7 @@ export class AuthService {
 
 constructor(private http: HttpClient) { }
 
-changeMemberPhoto(photoUrl: string){
+changeMemberPhoto(photoUrl: string) {
   this.photoUrl.next(photoUrl);
 }
 
