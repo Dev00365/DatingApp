@@ -10,11 +10,13 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
  model: any = {};
+ photoUrl: string;
   constructor(public authServices:  AuthService, private alertifyService: AlertifyService , private router: Router) { }
 
   ngOnInit() {
+    this.authServices.currentPhoto.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
- 
+
   login() {
     this.authServices.login(this.model).subscribe(next => {
       this.alertifyService.success('logged in Successfully');
@@ -24,13 +26,16 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['/members']);
     });
   }
-  
-  loggedIn(){
+
+  loggedIn() {
     return this.authServices.loggedIn();
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.authServices.decodeToken = null;
+    this.authServices.currentUser = null;
     this.alertifyService.message('logged out');
     this.router.navigate(['/home']);
   }

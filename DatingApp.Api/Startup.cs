@@ -38,6 +38,7 @@ namespace DatingApp
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IDatingRepository, DatingRepository>();
             services.AddAutoMapper();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
              services.AddDbContext<DataContext>(opt =>opt.UseSqlite(Configuration.GetConnectionString("DefaultConntection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
             .AddJsonOptions( opt => {
