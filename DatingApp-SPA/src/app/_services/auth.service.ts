@@ -5,13 +5,14 @@ import {map} from 'rxjs/operators';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import { from } from 'rxjs';
 import { User } from '../_models/user';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  baseUrl = 'http://localhost:5000/api/auth/';
+  baseUrl = environment.baseUrl + 'auth/';
   jwtHelper = new JwtHelperService();
   decodeToken: any;
   currentUser: User;
@@ -40,9 +41,9 @@ login(model: any) {
   );
 }
 
-register(model: any) {
+register(user: User) {
 
-  return this.http.post(this.baseUrl + 'Register', model );
+  return this.http.post(this.baseUrl + 'Register', user );
 }
 
 loggedIn() {

@@ -23,11 +23,11 @@ export class HomeComponent implements OnInit {
   }
 
   GetValues() {
-    this.http.get('http://localhost:5000/api/values').subscribe(Response => {
-      this.values = Response;
-    }, error => {
-      console.log(error);
-    });
+    // this.http.get('http://localhost:5000/api/values').subscribe(Response => {
+    //   this.values = Response;
+    // }, error => {
+    //   console.log(error);
+    // });
   }
 
   cancelRegisterMode(registerMode: boolean) {

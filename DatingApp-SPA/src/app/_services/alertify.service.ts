@@ -7,7 +7,7 @@ export class AlertifyService {
 
 constructor() { }
 
-  confirm(message: string , oKCallBack: () => any){
+  confirm(message: string , oKCallBack: () => any) {
     alertify.confirm(message, function(e) {
       if (e) {
         oKCallBack();
@@ -15,18 +15,18 @@ constructor() { }
     });
   }
 
-  success(message: string ){
+  success(message: string ) {
     alertify.success(message);
   }
 
-  error(message: string ){
+  error(message: string ) {
     alertify.error(message);
   }
 
-  warning(message: string ){
+  warning(message: string ) {
     alertify.warning(message);
   }
-  message(message: string ){
+  message(message: string ) {
     alertify.message(message);
   }
 

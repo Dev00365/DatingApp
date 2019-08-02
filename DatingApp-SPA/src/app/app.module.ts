@@ -4,7 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TabsModule, BsDatepickerModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 
 
@@ -59,6 +59,7 @@ export function tokenGetter() {
       RouterModule.forRoot(appRoute),
       NgxGalleryModule,
       FileUploadModule,
+      BsDatepickerModule.forRoot(),
       JwtModule.forRoot({
          config: {
             tokenGetter: tokenGetter,
