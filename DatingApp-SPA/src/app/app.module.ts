@@ -4,7 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { BsDropdownModule, TabsModule, BsDatepickerModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TabsModule, BsDatepickerModule, PaginationModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 
 
@@ -18,6 +18,7 @@ import { MemberListComponent } from './members/member-list/member-list.component
 import { ListComponent } from './list/list.component';
 import { MessagesComponent } from './messages/messages.component';
 import { appRoute } from './routes';
+import {TimeAgoPipe} from 'time-ago-pipe';
 import { AuthGuard } from './_gaurds/auth.guard';
 import { UserService } from './_services/user.service';
 import { MemberCardComponent } from './members/member-card/member-card.component';
@@ -47,7 +48,8 @@ export function tokenGetter() {
       MemberCardComponent,
       MemberDetailComponent,
       MemberEditComponent,
-      PhotoEditorComponent
+      PhotoEditorComponent,
+      TimeAgoPipe
    ],
    imports: [
       BrowserModule,
@@ -57,6 +59,7 @@ export function tokenGetter() {
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoute),
+      PaginationModule.forRoot(),
       NgxGalleryModule,
       FileUploadModule,
       BsDatepickerModule.forRoot(),

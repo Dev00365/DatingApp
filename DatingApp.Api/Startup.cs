@@ -57,7 +57,7 @@ namespace DatingApp
                 };  
 
             });
-
+            services.AddScoped<LogUserActivity>();
 
 
         }

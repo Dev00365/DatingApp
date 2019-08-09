@@ -54,6 +54,13 @@ currentPhoto: Photo;
       isMain: res.isMain
     };
     this.photos.push(photo);
+
+    if (res.isMain) {
+      this.authservic.changeMemberPhoto(photo.url);
+    this.authservic.currentUser.photoUrl = photo.url;
+    localStorage.setItem('user', JSON.stringify(this.authservic.currentUser));
+    }
+
   };
 
 }
